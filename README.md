@@ -1,5 +1,7 @@
 # Blackjack (16-bit DOS, MASM 6.15)
 
+👉 [繁體中文](README_zh-TW.md)
+
 This is a text-mode Blackjack (21) game written in 16-bit DOS assembly. The program is contained in a single file: `BLACKJACK.ASM`.
 It has minimal dependencies: it uses only DOS interrupts (INT 21h) for input/output and a simple Linear Congruential Generator (LCG) for card values.
 
@@ -85,7 +87,7 @@ It has minimal dependencies: it uses only DOS interrupts (INT 21h) for input/out
   - Use `seed mod 13` as index -> fetch `card_values[index]` into AX.
 - I/O helpers:
   - `PRINT_STRING (AH=09h)`, `PRINT_CHAR (AH=02h)`, `PRINT_NUMBER`, `PRINT_NUMBER_SPACE`
-  - `READ_CHAR (AH=01h)` + `FLUSH_KB_BUFFER (AH=0Bh/07h)`
+  - `READ_CHAR (AH=01h)` + `FLUSH_KB_BUFFER (AH=0Bh/07h)
 
 ---
 
@@ -143,6 +145,4 @@ This project targets MASM 6.15 in a 16-bit DOS environment. On modern OSes, use 
 - The bet is deducted before dealing: `player_money -= current_bet`.
 - Player win or dealer bust: `PLAYER_WINS_MONEY` doubles the stake back into the bankroll (returning the bet + even-money winnings).
 - Player bust or loss to dealer: the deducted bet is not returned.
-- Push: the bet is returned (add `current_bet` back to `player_money`).
-
----
+- Push: the bet is returned (add `current_bet` back to `player_money`.
