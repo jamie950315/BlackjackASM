@@ -1,5 +1,7 @@
 # Blackjack (16-bit DOS, MASM 6.15)
 
+👉 [English](README.md)
+
 這是一個以 16-bit DOS 組合語言撰寫的文字介面的21點 (Blackjack) 小遊戲，單一檔案為 `BLACKJACK.ASM`。
 它以最小依賴實作：只使用 DOS 中斷 (INT 21h) 進行輸入與輸出、不需任何額外函式庫，
 並以一個簡單的線性同餘產生器 (LCG) 產生牌值。
@@ -80,10 +82,10 @@
 - `PLAYER_TURN` / `PLAYER_HIT` / `PLAYER_STAND`：玩家操作，處理爆牌/停牌。
 - `DEALER_TURN`：莊家自動抽到 17 點（含）以上。
 - `CHECK_WINNER`：無爆牌時比較點數，分派勝/負/平結果。
-- `PLAYER_WINS_MONEY`：將押注翻倍加回玩家資金（等同返還押注+贏得等額獎金）。
+- `PLAYER_WINS_MONEY`：將押注翻倍加回玩家資金（等同返還押注+贏得等額押注）。
 - `GET_CARD_VALUE`：
   - LCG：`seed = (seed * 25173 + 13849) mod 65536`
-  - `seed mod 13` 做為索引 -> 取 `card_values[index]` 回傳於 AX。
+  - `seed mod 13` 作為索引 -> 取 `card_values[index]` 回傳於 AX。
 - 輸入輸出：
   - `PRINT_STRING (AH=09h)`, `PRINT_CHAR (AH=02h)`, `PRINT_NUMBER`, `PRINT_NUMBER_SPACE`
   - `READ_CHAR (AH=01h)` + `FLUSH_KB_BUFFER (AH=0Bh/07h)`
@@ -114,7 +116,7 @@
 
 本專案以 MASM 6.15 與 16-bit DOS 環境為目標。若在現代操作系統環境，建議使用 DOSBox 或類似模擬器。
 
-###  使用 DOSBox + MASM 6.15（建議）
+### 使用 DOSBox + MASM 6.15（建議）
 
 1. 安裝 DOSBox。
 2. 將 MASM 6.15 工具（`ML.EXE`, `LINK.EXE`/`LINK16.EXE`）與本專案資料夾一併掛載至 DOSBox。
@@ -135,7 +137,7 @@
    BLACKJACK.EXE
    ```
 
-> 注意：不同 MASM/Link 版本的選項名稱略有差異；若無 `link16`，請改用 `link` 並確保目標格式為 16-bit DOS MZ 可執行檔。
+> 注意：不同 MASM/Link 版本選項可能略有差異；若無 `link16`，請改用 `link` 並確保目標格式為 16-bit DOS MZ 可執行檔。
 
 ---
 
