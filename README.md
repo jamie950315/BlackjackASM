@@ -71,7 +71,7 @@ It has minimal dependencies: it uses only DOS interrupts (INT 21h) for input/out
 
 ---
 
-## Subroutine Overview (Highlights)
+## Subroutine Overview
 
 - `MAIN`: set DS and jump to `_start`.
 - `GAME_INIT`: initialize bankroll, print welcome, seed RNG.
@@ -101,7 +101,7 @@ It has minimal dependencies: it uses only DOS interrupts (INT 21h) for input/out
 
 ---
 
-## Controls (How to Play)
+## How to Play
 
 - Betting: enter a multiplier 1–9 (base 10). For example, `3` means betting 30. Enter `0` to exit.
 - Player turn:
